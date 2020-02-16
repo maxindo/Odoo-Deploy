@@ -1,5 +1,5 @@
 #!/bin/bash
-#####################################################################################################
+#####################################################################################################a
 # Script for installing Postgres on Ubuntu 14.04, 15.04 and 16.04 (could be used for other version too)
 # Author: Mohamed Hammad
 # Inspired by: Yenthe Van Ginneken
