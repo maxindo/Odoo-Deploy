@@ -22,15 +22,19 @@ DB_PASS="odoo"
 # Update Server
 #--------------------------------------------------
 echo -e "\n---- Update Server ----"
-sudo apt update
-sudo apt upgrade -yV
+# universe package is for Ubuntu 18.x
+sudo add-apt-repository universe
+# libpng12-0 dependency for wkhtmltopdf
+sudo add-apt-repository "deb http://mirrors.kernel.org/ubuntu/ xenial main"
+sudo apt-get update
+sudo apt-get upgrade -y
 
 #--------------------------------------------------
 # Install PostgreSQL Server
 #--------------------------------------------------
 echo -e "\n---- Install PostgreSQL Server ----"
-sudo apt install postgresql postgresql-server-dev-all -yV
+sudo apt-get install postgresql postgresql-server-dev-all -y
 
-echo -e "\n---- Creating the Odoo PostgreSQL User  ----"
-sudo su - postgres -c "createuser -s $DB_USER" 2> /dev/null || true
+echo -e "\n---- Creating the ODOO PostgreSQL User  ----"
+sudo su - postgres -c "createuser -s $OE_USER" 2> /dev/null || true
 sudo su - postgres -c "psql -c \"ALTER USER $DB_USER WITH PASSWORD '$DB_PASS';\""
