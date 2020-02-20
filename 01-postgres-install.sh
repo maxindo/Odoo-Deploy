@@ -29,7 +29,7 @@ sudo apt upgrade -yV
 # Install PostgreSQL Server
 #--------------------------------------------------
 echo -e "\n---- Install PostgreSQL Server ----"
-sudo apt install postgresql postgresql-server-dev-all -yV
+sudo apt install postgresql postgresql-contrib phppgadmin postgresql-server-dev-all -yV
 
 echo -e "\n---- Creating the Odoo PostgreSQL User  ----"
 sudo su - postgres -c "createuser -s $DB_USER" 2> /dev/null || true
